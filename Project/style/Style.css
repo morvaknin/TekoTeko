@@ -1,3 +1,21 @@
 @import 'navBar.css';
 @import 'tree.css';
 @import 'scores.css';
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.background {
+    /* The image used */
+    background-image: url("..//pics//stadium_background2.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
