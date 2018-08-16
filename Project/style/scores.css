@@ -1,0 +1,15 @@
+input[type=text]{
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 150px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus{
+    width: 20%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
