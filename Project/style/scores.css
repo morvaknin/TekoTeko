@@ -1,6 +1,6 @@
 input[type=text]{
-    margin: 1rem;
-    padding: 0.5rem;
+    margin: 1em;
+    padding: 0.4em;
     width: 150px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
@@ -11,5 +11,9 @@ input[type=text]:focus{
 }
 
 table, th, td {
+    padding: 0.4em;
     border: 1px solid black;
+    color: aliceblue;
+    text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: 18px;
 }

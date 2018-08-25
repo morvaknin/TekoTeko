@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="../style/Style.css"/>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="../style/Style.css"/>
+        <script src="../javaScript/index.js"></script>
     </head>
 
     <body>
@@ -14,7 +16,8 @@
             </nav>
             
             <h2>make your guess here</h2>
-        <div class="tree">
+            
+            <div class="tree">
                 <ul>
                     <li>
                         <a href="#">Winner!</a>
@@ -141,7 +144,20 @@
                     </li>
                 </ul>
             </div>
+            <div id="guess_button_div">
+                <button id= "guessBTN" class="guess_button"> Submmit Guess</button>
+            </div>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>please enter a username:</p>
+                    <form>
+                        <input type="text" name="username" placeholder="username">
+                    </form>
+                </div>
+            </div>
         </div>
     </body>
-
-</html>
+    
+    </html>
+    
