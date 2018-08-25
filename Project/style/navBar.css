@@ -1,5 +1,5 @@
-/* Add a black background color to the top navigation */
-.topnav {
+
+.topnav {/* Add a black background color to the top navigation */
     background-color: #333;
     overflow: hidden;
 }
