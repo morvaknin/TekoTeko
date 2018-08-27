@@ -1,4 +1,4 @@
-var http = require("http");
+// var http = require("http");
 
 // //This is the callback method, is called every time a user makes a request
 // //Request object has info about their request, response object is what we send back to them
@@ -23,9 +23,11 @@ var port = process.env.PORT || 8080;
 
 // routes will go here
 
+app.use(express.static(__dirname + "/Project/"));
+
 // start the server
 app.get('/', function(req, res){
-    res.sendfile('Html/MakeAGuess.html', { root: __dirname + "/Project/" } );
+    res.sendfile('Home.html', { root: __dirname + "/Project/Html/" } );
 });
 app.listen(port);
 console.log('Server started! At http://localhost:' + port);
