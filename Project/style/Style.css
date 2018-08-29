@@ -8,6 +8,9 @@ body, html {
     position: relative;
 }
 
+h1{
+    margin auto;
+}
 
 h2 {
     margin: auto;
