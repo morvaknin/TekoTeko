@@ -27,7 +27,7 @@ app.use(express.static(__dirname + "/Project/"));
 
 // start the server
 app.get('/', function(req, res){
-    res.sendfile('Home.html', { root: __dirname + "/Project/Html/" } );
+    res.sendfile('Html/Home.html', { root: __dirname + "/Project/" } );
 });
 app.listen(port);
 console.log('Server started! At http://localhost:' + port);
