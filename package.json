@@ -1,0 +1,23 @@
+{
+  "name": "tekoteko",
+  "version": "1.0.0",
+  "description": "Client side",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morvaknin/TekoTeko.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morvaknin/TekoTeko/issues"
+  },
+  "homepage": "https://github.com/morvaknin/TekoTeko#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
