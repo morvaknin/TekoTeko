@@ -22,4 +22,6 @@ window.onload = function(){
             modal.style.display = "none";
         }
     }
+
+    
 }

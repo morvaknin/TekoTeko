@@ -90,6 +90,7 @@ right connector from last child*/
 
 .tree li a{
 	border: 1px solid #ccc;
+	width: 30px;
 	padding: 5px 10px;
 	text-decoration: none;
 	color: #666;
@@ -125,7 +126,8 @@ right connector from last child*/
     font-size: 1rem;
 	position: relative;
     left: 50%;
-    margin-right: -50%;
+	margin-right: -50%;
+	top: 30rem;
 	transform: translate(-50%, -50%)
 }
 
@@ -169,4 +171,10 @@ right connector from last child*/
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.goals{
+
+    width: 30% !important;
+	margin: 0 !important;
 }
