@@ -43,7 +43,7 @@ for (i=0; i<eight_final.length;i++){
     eight_final[i].innerHTML = _teams[i];
 }
 
-
+//add event listeners to all of the tree elements
 for (i=0; i<eight_final.length;i++){
     const index = i;
     eight_final[i].addEventListener("click",function(){chooseWinner(eight_final,q_final,index);});
@@ -68,5 +68,9 @@ for (i=0; i<_final.length;i++){
 
 function chooseWinner(prevStage,currentStage,index){
     var j = Math.floor(index/2);
-    currentStage[j].innerHTML=prevStage[index].innerHTML;
+    if(prevStage[index].innerHTML != "QFinal" &&
+    prevStage[index].innerHTML != "Semi-Final" &&
+    prevStage[index].innerHTML != "Final"){
+        currentStage[j].innerHTML=prevStage[index].innerHTML;
+    }
 }

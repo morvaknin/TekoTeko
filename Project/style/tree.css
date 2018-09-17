@@ -93,7 +93,7 @@ right connector from last child*/
 	width: 40px;
 	padding: 10px 10px;
 	text-decoration: none;
-	color: #666;
+	color: #fff;
 	font-family: arial, verdana, tahoma;
 	font-size: 11px;
 	display: inline-block;
@@ -105,12 +105,13 @@ right connector from last child*/
 	transition: all 0.5s;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
+	text-align: center;
 }
 
 /*Time for some hover effects*/
 /*We will apply the hover effect the the lineage of the element also*/
 .tree li a:hover, .tree li a:hover+ul li a {
-	background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+	background: #50a524b8; color: #000; border: 1px solid #386c2e;
 	-webkit-border-radius: 20px;
 }
 /*Connector styles on hover*/
