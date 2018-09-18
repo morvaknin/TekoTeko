@@ -2,28 +2,17 @@
 @import 'tree.css';
 @import 'scores.css';
 
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./Lato-Regular.ttf');
+}
+
 body, html {
     height: 100%;
     margin: auto;
     position: relative;
 
-}
-
-
-
-h2 {
-    margin: auto;
-    padding: 1em;
-    color: aliceblue;
-    text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-align: center;
-}
-
-div {
-    display: block;
-}
-
-.background {
     /* The image used */
     background-image: url("..//pics//stadium_background.jpg");
 
@@ -34,6 +23,17 @@ div {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+h2 {
+    
+}
+
+div {
+    display: block;
 }
 
 .emailUsLink {

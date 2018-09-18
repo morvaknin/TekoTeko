@@ -5,6 +5,28 @@
 	
 }
 
+
+
+#tekoteko{
+	font-size: 30px;
+    padding: 1em;
+    color: aliceblue;
+    text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	text-align: center;
+	margin: 0px 0px -40px 0;
+}
+
+#MakeGuessTitle{
+	font-size: 20px;
+	margin: auto;
+    padding: 1em;
+    color: aliceblue;
+    text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: center;
+}
+
+
+
 div.tree {
     margin: 0;
     position: absolute;
@@ -106,9 +128,9 @@ right connector from last child*/
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	text-align: center;
+	background: #80808069;
 }
 
-/*Time for some hover effects*/
 /*We will apply the hover effect the the lineage of the element also*/
 .tree li a:hover, .tree li a:hover+ul li a {
 	background: #50a524b8; color: #000; border: 1px solid #386c2e;
@@ -124,18 +146,23 @@ right connector from last child*/
 
 
 .guess_button{
-    color: aliceblue;
-    font-size: 1rem;
+	color: aliceblue;
+	background: #0d2645;
+    font-size: 1.5rem;
 	position: relative;
     left: 50%;
 	margin-right: -50%;
-	top: 30rem;
-	transform: translate(-50%, -50%)
+	top: 26rem;
+	transform: translate(-50%, -50%);
+	-webkit-border-radius: 20px;
+	padding: 5px;
 }
 
 
 .guess_button:hover {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	background: #6585b9;
+
 }
 
 /* The Modal (background) */
@@ -154,11 +181,13 @@ right connector from last child*/
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #4CAF50;;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    border: 1px solid #081729;
+	width: 20%;
+	height: 20%;
+	-webkit-border-radius: 20px;
 }
 
 /* The Close Button */
@@ -183,3 +212,24 @@ right connector from last child*/
 	margin: 0 !important;
 }
 
+
+.submit{
+	color: aliceblue;
+    background: #0d2645;
+	font-size: 1rem;
+	padding: 4px;
+}
+
+#guess_sent_pop_up{
+	text-align: center;
+	margin: 15px 0 0 0;
+}
+
+#add_user{
+	margin: 10px 0px 0 0;
+	padding: 0.5em;
+}
+
+.send_guess_form{
+	padding: 20px;
+}

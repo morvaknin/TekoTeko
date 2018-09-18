@@ -26,7 +26,6 @@ window.onload = function(){
     
 }
 
-var title = document.getElementById("title1");
 var eight_final = document.getElementById("tree").getElementsByClassName("8Final");
 var q_final = document.getElementById("tree").getElementsByClassName("QFinal");
 var s_final = document.getElementById("tree").getElementsByClassName("semiFinal");
@@ -35,7 +34,6 @@ var _winner = document.getElementById("tree").getElementsByClassName("Winner");
 const _teams = ["Uruguay","Portugal","France","Argentina","Brazil","Mexico","Belgium",
 "Japan","Spain","Russia","Croatia","Denmark","Sweden","Swiss","Colombia","England"];
 
-console.log(q_final);
 
 
 //init Round of 16
@@ -68,9 +66,11 @@ for (i=0; i<_final.length;i++){
 
 function chooseWinner(prevStage,currentStage,index){
     var j = Math.floor(index/2);
+
     if(prevStage[index].innerHTML != "QFinal" &&
     prevStage[index].innerHTML != "Semi-Final" &&
     prevStage[index].innerHTML != "Final"){
+
         currentStage[j].innerHTML=prevStage[index].innerHTML;
     }
 }
