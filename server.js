@@ -58,9 +58,7 @@ app.post('/guess', function(req, res) {
     let win = data.win;
     let score = 0;
     
-    console.log(req.body);
-    //TODO!!!
-    
+    //TODO!!!    
     if (/*data.user in database*/ false) {
         res.status(409).send("this username exists already!");
         return;
@@ -75,7 +73,7 @@ app.post('/guess', function(req, res) {
     score += check(win,the_winner,10);
     console.log(score);
 
-    res.send("Your guess has been sent");
+    res.send("Your guess has been sent!");
 
     //TODO!!!
     

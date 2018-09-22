@@ -128,6 +128,7 @@ function submitGuess(){
     var user = document.getElementById("add_user").value;
 
     if (!validate_all_arrays()) {
+        _message.innerHTML = "Fill your guess!"
         console.log("DAMNIT!");
         return;
     }
@@ -140,9 +141,7 @@ function submitGuess(){
         user: user
     };
 
-    console.log(guess);
 
-    //Fix it
     request('POST', '/guess', guess).then(
         message => {
             _message.innerHTML=message;
@@ -169,6 +168,7 @@ window.onload = function(){
     // When the user clicks on the button, open the modal 
     guessBtn.onclick = function() {
         modal.style.display = "block";
+        _message.innerHTML = "";
     }
 
     // When the user clicks on <span> (x), close the modal
