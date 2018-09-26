@@ -1,3 +1,5 @@
+var express = require('express');
+var router = express.Router();
 var mongodb = require('mongodb');
 var db;
 
@@ -48,7 +50,13 @@ function find(user, pro) {
 
 
 
-/*
+module.exports = {
+    connect,
+    insert,
+    find
+};
+
+
 router.get('/_list',function(req,res){
     var MongoClient = mongodb.MongoClient;
     var url =  'mongodb://localhost:27017/scores';
@@ -79,7 +87,10 @@ router.get('/_list',function(req,res){
 
     })
 })
-*/
+
+
 router.get('/newuser',function(req,res){
     res.render('newuser',)
 })
+
+

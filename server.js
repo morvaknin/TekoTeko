@@ -1,9 +1,8 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
+const mongo = require('./db').connect;
 
-
-var mongo = require('./db').connect;
 
 
 // routes will go here
@@ -35,6 +34,7 @@ function check(guess,res,points){
     }
     return sum;
 }
+
 
 app.post('/guess', function(req, res) {
     let data = req.body;
@@ -72,5 +72,15 @@ app.post('/guess', function(req, res) {
 
 
 
-app.listen(port);
-console.log('Server started! At http://localhost:' + port);
+app.listen(port,function(){
+    console.log('Server started! At http://localhost:' + port);
+    mongo().then(res =>{
+    console.log(res)},
+    res =>{
+        console.error(res);
+    }
+);
+});
+
+
+
