@@ -22,31 +22,28 @@ function connect() {
 }
 
 
- function insert(user) {
+ function insert(data) {
     return new Promise( (resolve, reject) => {
-        db.collection("users").insertOne(user, (err, res) => {
+        db.collection("users").insertOne(data, (err, res) => {
             if (err){
                 reject(err);
             } 
             else 
                 resolve(res);
-        });
+            });
     });
 }
 
-function find(user, pro) {
-    var proj = pro || {};
-    Object.assign(proj, { _id: 0 });
-
-    return new Promise((resolve, reject) => {
-        db.collection("users").findOne(user, { pro: proj }, (err, res) => {
-            if (err){
-                reject(err);
-            } 
-            resolve(res);
-        });
+function find(user) {
+    db.collection("users").find({}).toArray((err, res) => {
+        if (err){
+            reject(err);
+        } 
+        console.log(res);
+        return(res);
     });
 }
+
 
 
 
@@ -55,42 +52,3 @@ module.exports = {
     insert,
     find
 };
-
-
-router.get('/_list',function(req,res){
-    var MongoClient = mongodb.MongoClient;
-    var url =  'mongodb://localhost:27017/scores';
-
-    MongoClient.connect(url,function(err,db){
-        if (err){
-            console.log("Unable to connect the server", err);
-        }
-        else{
-            console.log("Connection Established");
-            var collection = db.collection('scores');
-            collection.find({}).toArray(function(err,result){
-                if (err){
-                        res.send(err);
-                }
-                else if(result.length){
-                    res.render('scoreslist',{
-                        "scoreslist":resule
-                    });
-                }
-                else {
-                    res.send('No documants found');
-                }
-
-                db.close();
-            })
-        }
-
-    })
-})
-
-
-router.get('/newuser',function(req,res){
-    res.render('newuser',)
-})
-
-

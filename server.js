@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
-const mongo = require('./db').connect;
+const database = require('./db');
+const mongo = database.connect;
 
 
 
@@ -24,6 +25,10 @@ app.get('/', function(req, res){
     res.sendfile('Html/Home.html', { root: __dirname + "/Project/" } );
 });
 
+app.post(,'/get_data',function(req,res){
+
+})
+
 
 function check(guess,res,points){
     var sum = 0;
@@ -42,6 +47,7 @@ app.post('/guess', function(req, res) {
     let s = data.s;
     let fin = data.fin;
     let win = data.win;
+    let user = data.user;
     let score = 0;
     
     //TODO!!!    
@@ -59,13 +65,50 @@ app.post('/guess', function(req, res) {
     score += check(win,the_winner,10);
     console.log(score);
 
-    res.send("Your guess has been sent!");
+    //res.send("Your guess has been sent!");
+
+
 
     //TODO!!!
     
     /*insertToDB({user: data.user, score: score}).then(
         success => res.send(score),
         err => res.status(500).send("OOPS:(")
+    );
+    */
+
+   /*request('POST','/insert', {user,score}).then(
+    message => {
+        _message.innerHTML=message;
+    },
+    message => {
+        _message.innerHTML=message;
+    }
+);*/
+
+
+    var row = {
+        username : user,
+        my_score : score    
+    }
+    //console.log("HAAAAAAAAAAAAAAAAAAAAA");
+
+    database.insert(row);
+    database.find();
+    console.log(database.find);
+    res.send("User has been added");
+/*
+    database.find(user).then(
+        result => {
+            console.log("HAAAAAAAAAAAAAAAAAAAAA");
+            if (result) {
+                res.status(409).send("Username already exists");
+                return;
+            }
+            database.insert(row);
+            res.send("User has been added");
+        },
+        () => res.status(500).send("Server Error")
     );
     */
 });
