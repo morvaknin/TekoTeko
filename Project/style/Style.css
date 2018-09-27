@@ -45,3 +45,47 @@ div {
 	transform: translate(-50%, -50%);
     color: aliceblue;
 }
+
+
+@media only screen and (max-width: 768px){
+    body, html {
+        height: 100%;
+        margin: auto;
+        position: relative;
+    
+        /* The image used */
+        background-image: url("..//pics//stadium_background.jpg");
+    
+        /* Full height */
+        height: 100%; 
+    
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: 'Lato', sans-serif;
+    }
+    
+    
+    
+    h2 {
+        
+    }
+    
+    div {
+        display: block;
+    }
+    
+    .emailUsLink {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        color: aliceblue;
+    }
+    
+
+
+}

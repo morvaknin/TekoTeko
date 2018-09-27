@@ -12,38 +12,6 @@ if (document.getElementById("guessBTN") != null) {
 
 
 
-
-
-    function request(method, url, _data) {
-        let data = _data || {};
-        return new Promise((resolve, reject) => {
-            let httpClient = new XMLHttpRequest();
-
-            // configure request type
-            httpClient.open(method, url, true);
-            httpClient.setRequestHeader("Content-type", "application/json");
-
-            // handle response
-            httpClient.onreadystatechange = () => {
-                if (httpClient.readyState == 4) {
-                    var response = httpClient.response;
-                    if (httpClient.status == 200) {
-                        // success
-                        resolve(response);
-                    } else {
-                        // failure 
-                        reject(response);
-                    }
-                }
-            };
-
-            // send request
-            httpClient.send(JSON.stringify(data));
-
-        });
-    }
-
-
     //init Round of 16
     for (i = 0; i < eight_final.length; i++) {
         eight_final[i].innerHTML = _teams[i];
@@ -83,6 +51,7 @@ if (document.getElementById("guessBTN") != null) {
 
     }
 
+    
 
     function chooseWinner(prevStage, currentStage, index) {
         var j = Math.floor(index / 2);
@@ -158,31 +127,100 @@ if (document.getElementById("guessBTN") != null) {
 
 }
 
+
+
+
+function request(method, url, _data) {
+    let data = _data || {};
+    return new Promise((resolve, reject) => {
+        let httpClient = new XMLHttpRequest();
+
+        // configure request type
+        httpClient.open(method, url, true);
+        httpClient.setRequestHeader("Content-type", "application/json");
+
+        // handle response
+        httpClient.onreadystatechange = () => {
+            if (httpClient.readyState == 4) {
+                var response = httpClient.response;
+                if (httpClient.status == 200) {
+                    // success
+                    resolve(response);
+                } else {
+                    // failure 
+                    reject(response);
+                }
+            }
+        };
+
+        // send request
+        httpClient.send(JSON.stringify(data));
+
+    });
+}
+
+
+  
+  
+function fillScoreTable() {
+    var table = document.getElementById("score_table");
+
+    if (table != null) {
+        console.log("recieving table data from server");
+        request('GET', '/get_data',{}).then(
+            data => {             
+                _data = JSON.parse(data);
+                _data.sort((a,b) => (a.my_score < b.my_score) ? 1 : ((b.my_score > a.my_score) ? -1 : 0));               
+                //_data.sort();
+                //console.log(_data)
+                var j = 0;
+                for(i in _data){
+                    j++;
+                    id = _data[i]["_id"]
+                    username = _data[i]["username"]
+                    score = _data[i]["my_score"]
+
+                    
+                    var tr = document.createElement("tr");
+                    var th = document.createElement("th");
+                    var th2 = document.createElement("th");
+                    var th3 = document.createElement("th");
+                    var txt = document.createTextNode(j);
+                    var txt2 = document.createTextNode(username);
+                    var txt3 = document.createTextNode(score);
+
+
+                    th.appendChild(txt);
+                    th2.appendChild(txt2);
+                    th3.appendChild(txt3);
+                    tr.appendChild(th);
+                    tr.appendChild(th2);
+                    tr.appendChild(th3);
+                    table.appendChild(tr);
+
+                }
+
+            },
+            data => {
+                console.log("error");
+            }
+        );
+    }
+
+    
+}
+
+
+
+
 window.onload = function () {
 
     var modal = document.getElementById('myModal');
     var span = document.getElementsByClassName("close")[0];
     var guessBtn = document.getElementById("guessBTN");
-    var table = document.getElementById("score_table");
-
-    if (document.getElementById("score_table") != null) {
-        console.log(database.find);
-        console.log("asssssssssssssssssaasasa");
-        request('POST', '/get_data',{}).then(
-            message => {
-                _message.innerHTML = message;
-            },
-            message => {
-                _message.innerHTML = message;
-            }
-        );
-
-
-
-
-
-    }
-
+    fillScoreTable();
+    
+    
 
     if (document.getElementById("guessBTN") != null) {
         // When the user clicks on the button, open the modal 
@@ -209,3 +247,24 @@ window.onload = function () {
 
 
 }
+
+function tableSearch() {
+    // Declare variables 
+    var input, filter, table, tr, th, i;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("score_table");
+    tr = table.getElementsByTagName("tr");
+    tr_head = table.getElementsByClassName("header");
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      th = tr[i].getElementsByTagName("th")[1];
+      if (th) {
+        if (th.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+    } 
+    }
+  }

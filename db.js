@@ -4,7 +4,7 @@ var mongodb = require('mongodb');
 var db;
 
 function connect() {
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
         var url = 'mongodb://localhost:27017/';
         mongodb.MongoClient.connect(url, { useNewUrlParser: true }, (err, my_db) => {
             if (err) {
@@ -12,9 +12,9 @@ function connect() {
             }
             db = my_db.db("TekoTeko");
             db.createCollection("users", (err, res) => {
-                if (err){
+                if (err) {
                     reject(err);
-                } 
+                }
                 resolve("Connection Established");
             });
         });
@@ -22,26 +22,32 @@ function connect() {
 }
 
 
- function insert(data) {
-    return new Promise( (resolve, reject) => {
+function insert(data) {
+    return new Promise((resolve, reject) => {
         db.collection("users").insertOne(data, (err, res) => {
-            if (err){
+            if (err) {
                 reject(err);
-            } 
-            else 
+            }
+            else
                 resolve(res);
-            });
+        });
     });
 }
 
 function find(user) {
-    db.collection("users").find({}).toArray((err, res) => {
-        if (err){
-            reject(err);
-        } 
-        console.log(res);
-        return(res);
+    /*var proj = pro || {};
+     Object.assign(proj, { _id: 0 });*/
+     //db.dropDatabase();
+    return new Promise((resolve, reject) => {
+        db.collection("users").find({}).toArray((err, res) => {
+            if (err) {
+                reject(err);
+            }
+            console.log(res);
+            resolve(res);
+        });
     });
+
 }
 
 

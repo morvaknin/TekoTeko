@@ -22,12 +22,9 @@ const the_winner = ["France"];
 
 // start the server
 app.get('/', function(req, res){
-    res.sendfile('Html/Home.html', { root: __dirname + "/Project/" } );
+    res.sendfile('Html/MakeAGuess.html', { root: __dirname + "/Project/" } );
 });
 
-app.post(,'/get_data',function(req,res){
-
-})
 
 
 function check(guess,res,points){
@@ -39,6 +36,32 @@ function check(guess,res,points){
     }
     return sum;
 }
+
+
+
+
+
+
+app.get('/get_data', function(req, res) {
+    database.find().then(
+        data => {
+            if (data) {
+                console.log(data);
+                res.send(data);
+                return;
+            }
+        },
+        _ => res.status(500).send("error")
+    );
+});
+
+
+
+
+
+
+
+
 
 
 app.post('/guess', function(req, res) {

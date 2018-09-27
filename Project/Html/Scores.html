@@ -10,22 +10,19 @@
     <body>
         <div class="background">
             <nav class="topnav">
-                <a href="Home.html">Home</a>
-                <a href="MakeAGuess.html">Make A Guess</a>
+                <a href="../Html/MakeAGuess.html">Make A Guess</a>
                 <a class="active" href="#Scores">Scores</a>
-                <a href="About.html">About</a>
             </nav>
 
             <form>
-                <!--connect to DB and check if posible to make dynamic search (refresh automaticly)-->
-                <input type="text" name="search" placeholder="search...">
+                <input type="text" id="search" name="search" onkeyup="tableSearch()" placeholder="search...">
             </form>
             <!--in js need to make table from the first ten players (high score)-->
             <table id="score_table" style="width:50%">
                 <tr class="header">
-                <th>#</th>
-                <th>Username</th>
-                <th>Score</th>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Score</th>
                 </tr>
             </table>
         </div>
