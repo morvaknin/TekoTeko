@@ -1,5 +1,4 @@
 var express = require('express');
-var router = express.Router();
 var mongodb = require('mongodb');
 var db;
 
@@ -34,10 +33,11 @@ function insert(data) {
     });
 }
 
-function find(user) {
+function find() {
     /*var proj = pro || {};
      Object.assign(proj, { _id: 0 });*/
      //db.dropDatabase();
+
     return new Promise((resolve, reject) => {
         db.collection("users").find({}).toArray((err, res) => {
             if (err) {
@@ -50,11 +50,22 @@ function find(user) {
 
 }
 
+function isExist(user){
+    flag = db.collection("users").findOne({'username': user});
+    if (flag){
+        return true;
+    }
+    return false;
+}
+
+
+
 
 
 
 module.exports = {
     connect,
     insert,
-    find
+    find,
+    isExist
 };
