@@ -34,10 +34,6 @@ function insert(data) {
 }
 
 function find() {
-    /*var proj = pro || {};
-     Object.assign(proj, { _id: 0 });*/
-     //db.dropDatabase();
-
     return new Promise((resolve, reject) => {
         db.collection("users").find({}).toArray((err, res) => {
             if (err) {
@@ -50,22 +46,11 @@ function find() {
 
 }
 
-function isExist(user){
-    flag = db.collection("users").findOne({'username': user});
-    if (flag){
-        return true;
-    }
-    return false;
-}
-
-
-
 
 
 
 module.exports = {
     connect,
     insert,
-    find,
-    isExist
+    find
 };

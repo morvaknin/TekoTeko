@@ -62,15 +62,6 @@ app.post('/guess', function(req, res) {
     let user = data.user;
     let score = 0;
     
-    //TODO!!!    
-    console.log("before isExist");
-    if (database.isExist(user)) {
-        console.log("inside isExist");
-        res.status(409).send("This username exists already!");
-        return;
-    }
-
-
 
     // function to iterate over both arrays
     score += check(q,q_final_results,1);
@@ -87,20 +78,6 @@ app.post('/guess', function(req, res) {
     database.insert(row);
     database.find();
     res.send("User has been added");
-/*
-    database.find(user).then(
-        result => {
-            console.log("HAAAAAAAAAAAAAAAAAAAAA");
-            if (result) {
-                res.status(409).send("Username already exists");
-                return;
-            }
-            database.insert(row);
-            res.send("User has been added");
-        },
-        () => res.status(500).send("Server Error")
-    );
-    */
 });
 
 

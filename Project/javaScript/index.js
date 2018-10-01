@@ -171,8 +171,7 @@ function fillScoreTable() {
             data => {             
                 _data = JSON.parse(data);
                 _data.sort((a,b) => (a.my_score < b.my_score) ? 1 : ((b.my_score > a.my_score) ? -1 : 0));               
-                //_data.sort();
-                //console.log(_data)
+
                 var j = 0;
                 for(i in _data){
                     j++;
